@@ -4,7 +4,7 @@
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
-					<th style="background-color: #f4f4f4;">Presentacion</th>
+					<th style="background-color: #f4f4f4;">Presentación</th>
 					<td><?php echo $computadora->presentacion; ?></td>
 					<th style="background-color: #f4f4f4;">Proveedor</th>
 					<td><?php echo $computadora->proveedor; ?></td>
@@ -68,8 +68,8 @@
 				</tr>
 				<tr>
 					<th>Fecha</th>
-					<th>Tecnico</th>
-					<th colspan="2">Descripcion</th>
+					<th>Técnico</th>
+					<th colspan="2">Descripción</th>
 				</tr>
 				<?php if (!empty($mantenimientos)): ?>
 					<?php foreach ($mantenimientos as $mantenimiento): ?>
@@ -82,14 +82,19 @@
 					
 				<?php else: ?>
 					<tr>
-						<td colspan="4">No se ha realizo ningun mantenimiento</td>
+						<td colspan="4">No se ha realizo ningún mantenimiento</td>
 					</tr>
 				<?php endif ?>
 			</tbody>
 		</table>
-		<tr>
-			<td colspan="4">Firma:  _________________________</td>
-		</tr>
-		
+		<div class="row">
+			<div class="col-md-6">
+				Firma Autorizada: _______________
+			</div>
+			<div class="col-md-6">
+				Firma Usuario: ________________
+			</div>
+		</div>
+	
 	</div>
 </div>

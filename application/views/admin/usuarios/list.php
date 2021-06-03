@@ -18,12 +18,12 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Cedula</th>
+                                    <th>Cédula</th>
                                     <th>Nombres</th>
                                     <th>Email</th>
                                     <th>Rol</th>
                                     <th>Estado</th>
-                                    <th>Accion</th>
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
                             <tbody>

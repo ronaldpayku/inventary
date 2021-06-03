@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-8 col-xs-12">
                         <div class="form-group">
-                            <label for="codigo">Codigo:</label>
+                            <label for="codigo">Código:</label>
                             <input type="text" name="codigo" id="codigo" class="form-control" required="required">
                         </div>
                         <div class="form-group">
@@ -38,9 +38,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="presentacion">Presentacion:</label>
+                            <label for="presentacion">Presentación:</label>
                             <select name="presentacion" id="presentacion" class="form-control" required="required">
-                                <option value="">Elija presentacion</option>
+                                <option value="">Elija presentación</option>
                                 <?php foreach ($presentaciones as $presentacion): ?>
                                     <option value="<?php echo $presentacion->id;?>"><?php echo $presentacion->nombre;?></option>
                                 <?php endforeach ?>

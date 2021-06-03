@@ -3,7 +3,7 @@
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
-					<th style="background-color: #f4f4f4;">Descripcion</th>
+					<th style="background-color: #f4f4f4;">Descripción</th>
 					<td><?php echo $sistema->descripcion; ?></td>
 				</tr>
 				<tr>

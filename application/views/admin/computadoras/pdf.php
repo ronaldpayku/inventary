@@ -4,7 +4,7 @@
                 <td>
                     <img src="/assets/images/usuarios/imagen_femenino.jpg" alt="" style="width: 50px; height: 50px;">
                 </td>
-                <td>EMPRESA DE TRANSPORTE</td>
+                <td>Payku Spa</td>
                 <td><?php echo date("d-m-Y H:i:s");?></td>
             </tr>
         </tbody>
@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th style="border: 1px solid;">#</th>
-            <th style="border: 1px solid;">Codigo</th>
+            <th style="border: 1px solid;">Código</th>
             <th style="border: 1px solid;">Finca</th>
             <th style="border: 1px solid;">Area</th>
             <th style="border: 1px solid;">Procesador</th>

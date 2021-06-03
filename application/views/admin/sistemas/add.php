@@ -26,7 +26,7 @@
                         <?php endif ?>
                         
                         <div class="form-group">
-                            <label for="descripcion">Descripcion:</label>
+                            <label for="descripcion">Descripción:</label>
                             <input type="text" name="descripcion" id="descripcion" class="form-control" required="required">
                         </div>
                         

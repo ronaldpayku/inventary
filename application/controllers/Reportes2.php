@@ -17,7 +17,7 @@ class Reportes extends CI_Controller {
 	}
 	public function lectores(){
 		$fechainicio = $this->input->post("fechainicio");
-		$fechafinal = $this->input->post("fechafinal");
+		$fechafinal  = $this->input->post("fechafinal");
 
 		if ($this->input->post("buscar")) {
 			$lectores = $this->Lectores_model->getLectores(false,$fechainicio,$fechafinal);
@@ -27,9 +27,9 @@ class Reportes extends CI_Controller {
 		}
 
 		$contenido_interno = array(
-			"lectores" => $lectores,
-			"fechainicio" => $fechainicio,
-			"fechafinal" => $fechafinal
+			"lectores" 		=> $lectores,
+			"fechainicio" 	=> $fechainicio,
+			"fechafinal" 	=> $fechafinal
 
 		);
 		$contenido_externo = array(
@@ -39,7 +39,7 @@ class Reportes extends CI_Controller {
 	}
 	public function proyectores(){
 		$fechainicio = $this->input->post("fechainicio");
-		$fechafinal = $this->input->post("fechafinal");
+		$fechafinal  = $this->input->post("fechafinal");
 
 		if ($this->input->post("buscar")) {
 			$proyectores = $this->Proyectores_model->getProyectores(false,$fechainicio,$fechafinal);
@@ -51,7 +51,7 @@ class Reportes extends CI_Controller {
 		$contenido_interno = array(
 			"proyectores" => $proyectores,
 			"fechainicio" => $fechainicio,
-			"fechafinal" => $fechafinal
+			"fechafinal"  => $fechafinal
 
 		);
 		$contenido_externo = array(
@@ -71,9 +71,9 @@ class Reportes extends CI_Controller {
 		}
 
 		$contenido_interno = array(
-			"tablets" => $tablets,
-			"fechainicio" => $fechainicio,
-			"fechafinal" => $fechafinal
+			"tablets" 		=> $tablets,
+			"fechainicio" 	=> $fechainicio,
+			"fechafinal" 	=> $fechafinal
 
 		);
 		$contenido_externo = array(
@@ -84,7 +84,7 @@ class Reportes extends CI_Controller {
 
 	public function monitores(){
 		$fechainicio = $this->input->post("fechainicio");
-		$fechafinal = $this->input->post("fechafinal");
+		$fechafinal  = $this->input->post("fechafinal");
 
 		if ($this->input->post("buscar")) {
 			$monitores = $this->Monitores_model->getMonitores(false,$fechainicio,$fechafinal);
@@ -94,9 +94,9 @@ class Reportes extends CI_Controller {
 		}
 
 		$contenido_interno = array(
-			"monitores" => $monitores,
+			"monitores"   => $monitores,
 			"fechainicio" => $fechainicio,
-			"fechafinal" => $fechafinal
+			"fechafinal"  => $fechafinal
 
 		);
 		$contenido_externo = array(
@@ -107,7 +107,7 @@ class Reportes extends CI_Controller {
 
 	public function impresoras(){
 		$fechainicio = $this->input->post("fechainicio");
-		$fechafinal = $this->input->post("fechafinal");
+		$fechafinal  = $this->input->post("fechafinal");
 
 		if ($this->input->post("buscar")) {
 			$impresoras = $this->Impresoras_model->getImpresoras(false,$fechainicio,$fechafinal);
@@ -117,9 +117,9 @@ class Reportes extends CI_Controller {
 		}
 
 		$contenido_interno = array(
-			"impresoras" => $impresoras,
+			"impresoras"  => $impresoras,
 			"fechainicio" => $fechainicio,
-			"fechafinal" => $fechafinal
+			"fechafinal"  => $fechafinal
 
 		);
 		$contenido_externo = array(
@@ -130,7 +130,7 @@ class Reportes extends CI_Controller {
 
 	public function computadoras2(){
 		$fechainicio = $this->input->post("fechainicio");
-		$fechafinal = $this->input->post("fechafinal");
+		$fechafinal  = $this->input->post("fechafinal");
 
 		if ($this->input->post("buscar")) {
 			$computadoras = $this->Computadoras_model->getComputadoras(false,$fechainicio,$fechafinal);
@@ -141,8 +141,8 @@ class Reportes extends CI_Controller {
 
 		$contenido_interno = array(
 			"computadoras" => $computadoras,
-			"fechainicio" => $fechainicio,
-			"fechafinal" => $fechafinal
+			"fechainicio"  => $fechainicio,
+			"fechafinal"   => $fechafinal
 
 		);
 		$contenido_externo = array(
@@ -156,9 +156,9 @@ class Reportes extends CI_Controller {
 
 		$contenido_interno = array(
 			"totalcomp" => $this->Backend_model->countRows("computadoras"),
-			"totalimp" => $this->Backend_model->countRows("impresoras"),
-			"totalmon" =>$this->Backend_model->countRows("monitores"),
-			"totalusu" =>$this->Backend_model->countRows("usuarios"),
+			"totalimp"  => $this->Backend_model->countRows("impresoras"),
+			"totalmon"  => $this->Backend_model->countRows("monitores"),
+			"totalusu"  => $this->Backend_model->countRows("usuarios"),
 		);
 		$contenido_externo = array(
 			"contenido" => $this->load->view("admin/dashboard",$contenido_interno,TRUE)
@@ -177,13 +177,13 @@ class Reportes extends CI_Controller {
 	}
 
 	public function searchComputadoras(){
-		$buscar = $this->input->post("buscar");
-		$numeropagina = $this->input->post("nropagina");
-		$cantidad = $this->input->post("cantidad");
-		$checkfecha = $this->input->post("checkfecha");
-		$fecfin = $this->input->post("fecfin");
-		$fecinicio = $this->input->post("fecinicio");
-		$inicio = ($numeropagina -1)*$cantidad;
+		$buscar 		= $this->input->post("buscar");
+		$numeropagina 	= $this->input->post("nropagina");
+		$cantidad 		= $this->input->post("cantidad");
+		$checkfecha 	= $this->input->post("checkfecha");
+		$fecfin 		= $this->input->post("fecfin");
+		$fecinicio 		= $this->input->post("fecinicio");
+		$inicio 		= ($numeropagina -1)*$cantidad;
 
 		if ($checkfecha == 1) {
 			$computadoras = $this->Computadoras_model->getComputadoras(1,$buscar,$inicio,$cantidad,$fecinicio,$fecfin);
@@ -195,9 +195,9 @@ class Reportes extends CI_Controller {
 		
 		
 		$data = array(
-			"computadoras" => $computadoras,
-			"totalregistros" => count($total),
-			"cantidad" =>$cantidad
+			"computadoras" 		=> $computadoras,
+			"totalregistros" 	=> count($total),
+			"cantidad" 			=>$cantidad
 			
 		);
 		echo json_encode($data);
@@ -209,11 +209,12 @@ class Reportes extends CI_Controller {
 	}
 
 	public function exportcomputadoras(){
-		$fechainicio = $this->input->post("fechainicio");
-		$fechafin = $this->input->post("fechafin");
-		$searchfecha = $this->input->post("searchfecha");
-		$search = $this->input->post("search");
-		$tipoarchivo = $this->input->post("tipoarchivo");
+		$fechainicio 	= $this->input->post("fechainicio");
+		$fechafin 		= $this->input->post("fechafin");
+		$searchfecha 	= $this->input->post("searchfecha");
+		$search 		= $this->input->post("search");
+		$tipoarchivo 	= $this->input->post("tipoarchivo");
+		
 		if ($tipoarchivo == 1) {
 			//Cargamos la librería de excel.
 	    	$this->load->library('excel');
@@ -285,7 +286,7 @@ class Reportes extends CI_Controller {
 			$objDrawing->setWorksheet($this->excel->getActiveSheet());
 
 	        //Definimos los títulos de la cabecera.
-	        $this->excel->getActiveSheet()->setCellValue("C1", 'Empresa de Transporte');	
+	        $this->excel->getActiveSheet()->setCellValue("C1", 'Payku Spa');	
 	        $this->excel->getActiveSheet()->setCellValue("D1",date("d-m-Y"));	
 	        $this->excel->getActiveSheet()->setCellValue("A{$contador}", 'Nro.');	        
 	        $this->excel->getActiveSheet()->setCellValue("B{$contador}", 'Codigo');
@@ -361,7 +362,6 @@ class Reportes extends CI_Controller {
 		else{
 			 $this->load->library('Pdf');
 	        $pdf = new Pdf('L', 'mm', 'A4', true, 'UTF-8', false);
-	        
 	  
 	        $pdf->SetTitle('Reporte de computadoras '.date("d-m-Y"));
 
@@ -376,10 +376,6 @@ class Reportes extends CI_Controller {
 			// Añadir una página
 			// Este método tiene varias opciones, consulta la documentación para más información.
 			$pdf->AddPage("L");
-
-
-			
-	        
 	        
         	//preparamos y maquetamos el contenido a crear
 	        $html = '';
@@ -400,14 +396,12 @@ class Reportes extends CI_Controller {
 	        $html .= '<tr>';
 
 	        $html .= '<td width="15%" rowspan="2">
-					<img src="'.base_url("assets/images/logo.png").'" width="30" height="30">
+					<img src="'.base_url("assets/images/logo.png").'" width="60" height="30">
 	        </td>';
-	        $html .= '<td width="70%" rowspan="2" style="font-weight:bold;text-align:center;margin-top:30px !important;"><h1>Empresa de Transporte</h1></td>';
+	        $html .= '<td width="70%" rowspan="2" style="font-weight:bold;text-align:center;margin-top:30px !important;"><h1>Payku Spa</h1></td>';
 	        $html .= '<td width="15%" style="font-weight:bold;text-align:center;">Fecha</td>';
 	        $html .= '</tr>';
 	        $html .= '<tr>';
-
-	      
 	      
 	        $html .= '<td style="text-align:center;">'.date("d-m-Y").'</td>';
 	        $html .= '</tr>';
@@ -470,28 +464,22 @@ class Reportes extends CI_Controller {
         	$nombre_archivo = utf8_decode("Reportes_de_computadoras_".date("dmYHis").".pdf");
         	$pdf->Output($nombre_archivo, 'D');
 		}
-	
-
 
 	}
 
-	private function createFolder()
-    {
-        if(!is_dir("./files"))
-        {
+	private function createFolder() {
+        if(!is_dir("./files")) {
             mkdir("./files", 0777);
             mkdir("./files/pdfs", 0777);
         }
     }
 
-    public function show()
-    {
-        if(is_dir("./files/pdfs"))
-        {
-            $filename = "test.pdf"; 
-            $route = base_url("files/pdfs/test.pdf"); 
-            if(file_exists("./files/pdfs/".$filename))
-            {
+    public function show() {
+        if(is_dir("./files/pdfs")) {
+            $filename 	= "test.pdf"; 
+            $route 		= base_url("files/pdfs/test.pdf"); 
+            
+			if(file_exists("./files/pdfs/".$filename)) {
                 header('Content-type: application/pdf'); 
                 readfile($route);
             }
@@ -500,15 +488,13 @@ class Reportes extends CI_Controller {
 
     public function downloadPdf() {
         //si existe el directorio
-        if(is_dir("./files/pdfs"))
-        {
+        if(is_dir("./files/pdfs")) {
             //ruta completa al archivo
             $route = base_url("files/pdfs/test.pdf"); 
             //nombre del archivo
             $filename = "test.pdf"; 
             //si existe el archivo empezamos la descarga del pdf
-            if(file_exists("./files/pdfs/".$filename))
-            {
+            if(file_exists("./files/pdfs/".$filename)) {
                 header("Cache-Control: public"); 
                 header("Content-Description: File Transfer"); 
                 header('Content-disposition: attachment; filename='.basename($route)); 

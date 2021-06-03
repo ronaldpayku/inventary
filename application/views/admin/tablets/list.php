@@ -30,10 +30,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Fabricante</th>
                                     <th>Modelo</th>
-                                    <th>Descripcion</th>
+                                    <th>Descripción</th>
                                     <th>Ultimo Mante.</th>
                                     <th>Usuario</th>
                                     <th>Estado</th>
@@ -91,7 +91,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Informacion del Tablet</h4>
+        <h4 class="modal-title">Información del Tablet</h4>
       </div>
       <div class="modal-body">
         
@@ -132,8 +132,8 @@
                         <tr>
                             <th>#</th>
                             <th>Fecha</th>
-                            <th>Tecnico</th>
-                            <th>Descripcion</th>
+                            <th>Técnico</th>
+                            <th>Descripción</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -148,11 +148,11 @@
                         <input type="date" class="form-control" name="fecha" value="<?php echo date("Y-m-d")?>" required="required">
                     </div>
                     <div class="form-group">
-                        <label for="">Tecnico</label>
+                        <label for="">Técnico</label>
                         <input type="text" class="form-control" name="tecnico" required="required">
                     </div>
                     <div class="form-group">
-                        <label for="">Descripcion</label>
+                        <label for="">Descripción</label>
                         <textarea name="descripcion" id="descripcion"  rows="3" class="form-control"></textarea>
                     </div>
                     <div class="form-group">

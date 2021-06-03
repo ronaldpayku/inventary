@@ -17,5 +17,13 @@
 				
 			</tbody>
 		</table>
+		<div class="row">
+			<div class="col-md-6">
+				Firma Autorizada: ________________
+			</div>
+			<div class="col-md-6">
+				Firma Usuario: _____________
+			</div>
+		</div>
 	</div>
 </div>

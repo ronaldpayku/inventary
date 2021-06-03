@@ -16,7 +16,7 @@
 				</tr>
 				
 				<tr>
-					<th style="background-color: #f4f4f4;">Descripcion</th>
+					<th style="background-color: #f4f4f4;">Descripción</th>
 					<td><?php echo $tablet->descripcion; ?></td>
 				</tr>
 				<tr>
@@ -28,8 +28,8 @@
 				</tr>
 				<tr>
 					<th>Fecha</th>
-					<th>Tecnico</th>
-					<th colspan="2">Descripcion</th>
+					<th>Técnico</th>
+					<th colspan="2">Descripción</th>
 				</tr>
 				<?php if (!empty($mantenimientos)): ?>
 					<?php foreach ($mantenimientos as $mantenimiento): ?>

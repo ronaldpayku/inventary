@@ -27,7 +27,7 @@
                         <?php endif ?>
                         
                         <div class="form-group">
-                            <label for="codigo">Codigo:</label>
+                            <label for="codigo">Código:</label>
                             <input type="text" name="codigo" id="codigo" class="form-control" required="required" value="<?php echo $monitor->codigo;?>">
                         </div>
                         <div class="form-group">
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="area">Area:</label>
                             <select name="area" id="area" class="form-control" required="required">
-                                <option value="">Elija area</option>
+                                <option value="">Elija área</option>
                                 <?php foreach ($areas as $area): ?>
                                     <option value="<?php echo $area->id;?>" <?php echo $area->id==$monitor->area_id?"selected":"";?>><?php echo $area->nombre;?></option>
                                 <?php endforeach ?>

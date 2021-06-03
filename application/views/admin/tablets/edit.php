@@ -27,7 +27,7 @@
                         <?php endif ?>
                         
                         <div class="form-group">
-                            <label for="codigo">Codigo:</label>
+                            <label for="codigo">Código:</label>
                             <input type="text" name="codigo" id="codigo" class="form-control" required="required" value="<?php echo $tablet->codigo ?>">
                         </div>
                         <div class="form-group">
@@ -44,7 +44,7 @@
                             <input type="text" name="modelo" id="modelo" class="form-control" required="required" value="<?php echo $tablet->modelo; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="descripcion">Descripcion:</label>
+                            <label for="descripcion">Descripción:</label>
                             <input type="text" name="descripcion" id="descripcion" class="form-control" required="required" value="<?php echo $tablet->descripcion; ?>">
                         </div>
                         <?php if ($tablet->estado == 0): ?>

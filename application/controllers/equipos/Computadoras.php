@@ -341,7 +341,7 @@ class Computadoras extends CI_Controller {
 		$objDrawing->setWorksheet($this->excel->getActiveSheet());
 
         //Definimos los títulos de la cabecera.
-        $this->excel->getActiveSheet()->setCellValue("C1", 'Empresa de Transporte');	
+        $this->excel->getActiveSheet()->setCellValue("C1", 'Payku Spa');	
         $this->excel->getActiveSheet()->setCellValue("D1",date("d-m-Y"));	
         $this->excel->getActiveSheet()->setCellValue("A{$contador}", 'Nro.');	        
         $this->excel->getActiveSheet()->setCellValue("B{$contador}", 'Codigo');

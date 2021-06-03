@@ -41,7 +41,7 @@
                                 </div>
                             <?php endif ?>
                             <div class="form-group">
-                                <label for="cedula">Cedula:</label>
+                                <label for="cedula">Cédula:</label>
                                 <input type="text" name="cedula" id="cedula" class="form-control" required="required" value="<?php echo set_value('cedula'); ?>">
                                 <?php echo form_error('cedula', '<span class="help-block errorValidation">', '</span>'); ?>
                             </div>

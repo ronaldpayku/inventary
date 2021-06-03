@@ -11,8 +11,7 @@ class Fincas extends CI_Controller {
 		$this->load->model("Fincas_model");
 	}
 
-	public function index()
-	{
+	public function index()	{
 
 		$contenido_interno = array(
 			"fincas" => $this->Fincas_model->getFincas(),
@@ -23,28 +22,29 @@ class Fincas extends CI_Controller {
 		$this->load->view('admin/template', $contenido_externo);
 	}
 
-	public function add(){
+	public function add() {
 		$contenido_externo = array(
 			"contenido" => $this->load->view("admin/fincas/add","",TRUE)
 		);
 		$this->load->view('admin/template', $contenido_externo);
 	}
 
-	public function store(){
+	public function store() {
 		if ($this->input->post("guardar")) {
-			$nombre = $this->input->post("nombre");
-			$nit = $this->input->post("nit");
-			$direccion = $this->input->post("direccion");
-			$telefono = $this->input->post("telefono");
+			
+			$nombre 	 = $this->input->post("nombre");
+			$nit 		 = $this->input->post("nit");
+			$direccion 	 = $this->input->post("direccion");
+			$telefono 	 = $this->input->post("telefono");
 			$descripcion = $this->input->post("descripcion");
 
 			$data = array(
-				"nombre" => $nombre,
-				"nit" => $nit,
-				"direccion" => $direccion,
-				"telefono" => $telefono,
-				"descripcion" => $descripcion,
-				"estado" => 1
+				"nombre" 		=> $nombre,
+				"nit" 			=> $nit,
+				"direccion" 	=> $direccion,
+				"telefono" 		=> $telefono,
+				"descripcion" 	=> $descripcion,
+				"estado" 		=> 1
 			);
 
 			if ($this->Fincas_model->save($data)) {
@@ -95,13 +95,13 @@ class Fincas extends CI_Controller {
 	}
 
 	public function update(){
-		$id = $this->input->post("idFinca");
-		$nombre = $this->input->post("nombre");
-		$nit = $this->input->post("nit");
-		$direccion = $this->input->post("direccion");
-		$telefono = $this->input->post("telefono");
-		$descripcion = $this->input->post("descripcion");
-		$estado = 1;
+		$id 			= $this->input->post("idFinca");
+		$nombre 		= $this->input->post("nombre");
+		$nit 			= $this->input->post("nit");
+		$direccion 		= $this->input->post("direccion");
+		$telefono 		= $this->input->post("telefono");
+		$descripcion 	= $this->input->post("descripcion");
+		$estado 		= 1;
 
 		if ($this->input->post("estado") ) {
 			if ($this->input->post("estado") == 2) {
@@ -109,12 +109,12 @@ class Fincas extends CI_Controller {
 			}
 		}
 		$data = array(
-			"nombre" => $nombre,
-			"nit" => $nit,
-			"direccion" => $direccion,
-			"telefono" => $telefono,
-			"descripcion" => $descripcion,
-			"estado" => $estado
+			"nombre" 		=> $nombre,
+			"nit" 			=> $nit,
+			"direccion" 	=> $direccion,
+			"telefono" 		=> $telefono,
+			"descripcion" 	=> $descripcion,
+			"estado" 		=> $estado
 		);
 
 		if ($this->Fincas_model->update($id, $data)) {
@@ -124,10 +124,6 @@ class Fincas extends CI_Controller {
 		} else {
 			$this->session->set_flashdata("error", "Los datos no fueron guardados");
 			redirect(base_url()."configuraciones/fincas/edit/".$id);
-
 		}
-		
 	}
-
-
 }

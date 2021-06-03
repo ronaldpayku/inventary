@@ -26,7 +26,7 @@
                         <?php endif ?>
                         <input type="hidden" name="idUsuario" value="<?php echo $usuario->id;?>">
                         <div class="form-group">
-                            <label for="">Cedula:</label>
+                            <label for="">Cédula:</label>
                             <input type="text" name="cedula" class="form-control" required="required" value="<?php echo $usuario->cedula?>">
                         </div>
                         <div class="form-group">

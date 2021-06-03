@@ -27,12 +27,12 @@ class Impresoras extends CI_Controller {
 		$this->load->view('admin/template', $contenido_externo);
 	}
 
-	public function add(){
+	public function add() {
 		$contenido_interno = array(
-			"fabricantes" => $this->Fabricantes_model->getFabricantes(),
-			"proveedores" => $this->Proveedores_model->getProveedores(),
-			"fincas" => $this->Fincas_model->getFincas(),
-			"areas" => $this->Areas_model->getAreas(),
+			"fabricantes" 	=> $this->Fabricantes_model->getFabricantes(),
+			"proveedores" 	=> $this->Proveedores_model->getProveedores(),
+			"fincas" 		=> $this->Fincas_model->getFincas(),
+			"areas" 		=> $this->Areas_model->getAreas(),
 		);
 		$contenido_externo = array(
 			"contenido" => $this->load->view("admin/impresoras/add",$contenido_interno,TRUE)
@@ -42,29 +42,29 @@ class Impresoras extends CI_Controller {
 
 	public function store(){
 		if ($this->input->post("guardar")) {
-			$codigo = $this->input->post("codigo");
-			$proveedor = $this->input->post("proveedor");
-			$finca = $this->input->post("finca");
-			$area = $this->input->post("area");
-			$contacto = $this->input->post("contacto");
-			$fabricante = $this->input->post("fabricante");
+			$codigo 		= $this->input->post("codigo");
+			$proveedor 		= $this->input->post("proveedor");
+			$finca 			= $this->input->post("finca");
+			$area 			= $this->input->post("area");
+			$contacto 		= $this->input->post("contacto");
+			$fabricante 	= $this->input->post("fabricante");
 			$serial_fabricante = $this->input->post("serial_fabricante");
 			
-			$referencia = $this->input->post("referencia");
-			$tamaño = $this->input->post("tamaño");
-			$bitacora = $this->input->post("bitacora");
+			$referencia 	= $this->input->post("referencia");
+			$tamaño 		= $this->input->post("tamaño");
+			$bitacora 		= $this->input->post("bitacora");
 
 			$data = array(
-				"codigo" => $codigo,
-				"proveedor_id" => $proveedor,
-				"finca_id" => $finca,
-				"area_id" => $area,
-				"contacto" => $contacto,
+				"codigo" 		=> $codigo,
+				"proveedor_id" 	=> $proveedor,
+				"finca_id" 		=> $finca,
+				"area_id" 		=> $area,
+				"contacto" 		=> $contacto,
 				"fabricante_id" => $fabricante,
 				
 				"serial_fabricante" => $serial_fabricante,
-				"referencia" => $referencia,
-				"bitacora" => $bitacora,
+				"referencia" 	=> $referencia,
+				"bitacora" 		=> $bitacora,
 				"estado" => 1,
 				"fecregistro" => date("Y-m-d H:i:s"),
 				"usuario_id" => $this->session->userdata("id"),

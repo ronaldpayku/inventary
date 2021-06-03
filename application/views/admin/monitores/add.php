@@ -26,7 +26,7 @@
                         <?php endif ?>
                         
                         <div class="form-group">
-                            <label for="codigo">Codigo:</label>
+                            <label for="codigo">Código:</label>
                             <input type="text" name="codigo" id="codigo" class="form-control" required="required">
                         </div>
                         <div class="form-group">

@@ -49,18 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'auth/login';
-$route['reportes/computadoras/pagina/(:num)'] = 'reportes/computadoras/$1';
-$route['reportes/computadoras']               = "reportes/computadoras";
-$route['reportes/empresas'] = 'ingresos/empresas';
-$route['reportes/conductores'] = 'ingresos/conductores';
-$route['reportes/vehiculos'] = 'ingresos/vehiculos';
-$route['reportes/alistamientos'] = 'ingresos/alistamientos';
-$route['reportes/mantenimientos'] = 'mantenimientos/vehiculos/getMantenimientos';
-$route['reportes/proveedores'] = 'ingresos/proveedores';
-$route['usuario/perfil'] = 'administrador/usuarios/perfil';
-$route['mantenimientos/vehiculos/(:num)'] = 'mantenimientos/vehiculos/listar/$1';
+$route['default_controller'] 					= 'auth/login';
+$route['reportes/computadoras/pagina/(:num)'] 	= 'reportes/computadoras/$1';
+$route['reportes/computadoras']               	= "reportes/computadoras";
+$route['reportes/empresas'] 					= 'ingresos/empresas';
+$route['reportes/conductores'] 					= 'ingresos/conductores';
+$route['reportes/vehiculos'] 					= 'ingresos/vehiculos';
+$route['reportes/alistamientos'] 				= 'ingresos/alistamientos';
+$route['reportes/mantenimientos'] 				= 'mantenimientos/vehiculos/getMantenimientos';
+$route['reportes/proveedores'] 					= 'ingresos/proveedores';
+$route['usuario/perfil'] 						= 'administrador/usuarios/perfil';
+$route['mantenimientos/vehiculos/(:num)'] 		= 'mantenimientos/vehiculos/listar/$1';
 
 
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['404_override'] 			= '';
+$route['translate_uri_dashes'] 	= FALSE;
