@@ -69,6 +69,21 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+// botn archivo
+	$(document).on("click", ".btn-arch",function(){
+		id = $(this).val();
+		modulo = $("#modulo").val();
+		$.ajax({
+			url: base_url + "uploads/"+modulo+"/view",
+			type: "POST",
+			data: {id:id},
+			success: function(resp){
+				$("#modal-archivo .modal-body").html(resp);
+			}
+		});
+	});
+
 	$(document).on("click", ".btn-view-conf",function(){
 		id = $(this).val();
 		modulo = $("#modulo").val();
@@ -572,6 +587,41 @@ $(document).ready(function(){
 					swal({
 					     title: "Bien Hecho!",
 					     text: "Su imagen de Perfil fue actualizada",
+					     type: "success",
+					     timer: 3000
+					     },
+					     function () {
+					            location.reload(true);
+					            tr.hide();
+					    });
+					/*swal("Registro Exitoso!", "Su imagen de Perfil fue actualizada", "success");
+					window.location.href = base_url + "usuario/perfil";*/
+				}else{
+					//alert(resp.error);
+					swal("Error!", resp.error.replace(/(<([^>]+)>)/ig,""), "error");
+				}
+			}
+		});
+	});
+
+	$("#form-subir-imagen").submit(function(e){
+		e.preventDefault();
+
+		var formData = new FormData($("#form-subir-imagen")[0]);
+
+		$.ajax({
+			url: base_url + "administrador/usuarios/subirImagen",
+			type:"POST",
+			data: formData,
+			cache:false,
+			contentType:false,
+			processData:false,
+			dataType:"json",
+			success:function(resp){
+				if (resp.status == 1) {
+					swal({
+					     title: "Bien Hecho!",
+					     text: "Su imagen fue cargada con exito",
 					     type: "success",
 					     timer: 3000
 					     },

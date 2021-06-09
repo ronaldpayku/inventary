@@ -185,7 +185,17 @@
             </form>
         </div>
         <!-- /.box-body -->
-        
+        <div class="container">
+            <form action="#" method="POST" id="form-subir-imagen" enctype="multipart/form-data">
+                <!-- <input type="hidden" name="upload" value=""> -->
+                    <div class="form-group">
+                        <label for="">Seleccionar Archivo:</label>
+                            <input type="file" name="foto_cargada">
+                                <span class="help-block">Seleccione archivo .jpg  y .png</span>
+                    </div>
+                <button type="submit" class="btn btn-info">Sube un Archivo</button>
+            </form>
+        </div>
     </div>
     <!-- /.box -->
 </section>

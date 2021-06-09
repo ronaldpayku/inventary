@@ -59,9 +59,11 @@
 				<?php endif ?>
 			</tbody>
 		</table>
+		<br>
 		<div class="row">
 			<div class="col-md-6">
 				Firma Autorizada: ________________
+				<br><br>
 			</div>
 			<div class="col-md-6">
 				Firma Usuario: _____________

@@ -172,6 +172,7 @@
                             <li><a href="<?php echo base_url();?>reportes/tablets"><i class="fa fa-circle-o"></i> Tablets</a></li>
                             <li><a href="<?php echo base_url();?>reportes/proyectores"><i class="fa fa-circle-o"></i> Proyectores</a></li>
                             <li><a href="<?php echo base_url();?>reportes/lectores"><i class="fa fa-circle-o"></i> Lector de Código</a></li>
+                            <li><a href="<?php echo base_url();?>upload/do_upload"><i class="fa fa-circle-o"></i> Subir Archivo </a></li>
                         </ul>
                     </li>
                     <?php if ($this->session->userdata("rol") == 1): ?>

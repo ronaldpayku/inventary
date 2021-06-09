@@ -78,6 +78,14 @@
                                                 <button type="button" class="btn btn-info btn-flat btn-mante" data-toggle="modal" data-target="#modal-mantenimiento" title="Mantenimientos" value="<?php echo $computadora->id;?>">
                                                     <span class="fa fa-wrench"></span>
                                                 </button>
+                                                <!-- botn subir -->
+                                                <a href="<?php echo base_url();?>upload/do_upload/<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
+                                                <!-- ver archivo -->
+                                                <button type="button" class="btn btn-primary btn-flat btn-arch" data-toggle="modal" data-target="#modal-archivo" value="<?php echo $computadora->id;?>" title="Ver Archivo">
+                                                    <span class="fa fa-eye"></span>
+                                                </button>
+                                                
+                                                
                                             </div>
                                         </td>
 
@@ -85,6 +93,8 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+
+                        
                     </div>
                 </div>
             </div>
@@ -118,6 +128,29 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<!-- modal archivo -->
+<div class="modal fade" id="modal-archivo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Información de la Computadora</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print"> </span>Imprimir</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- fin modal archivo -->
 
 <div class="modal fade" id="modal-mantenimiento">
   <div class="modal-dialog">

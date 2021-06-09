@@ -107,6 +107,7 @@
                         <button id="file-pdf" type="submit" class="btn btn-danger btn-flat">
                             <span class="fa fa-file-pdf-o"></span> Exportar a PDF
                         </button>
+                        
                     </form>
                 </div>
                 <div class="col-md-8">

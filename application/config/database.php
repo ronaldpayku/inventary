@@ -75,9 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '35.224.91.81',
-	'username' => 'paykudes',
-	'password' => 'ovDhju4aZal9',
+	'hostname' => '127.0.0.1',
+	'username' => 'root',
+	'password' => '',
+	// 'hostname' => '35.224.91.81',
+	// 'username' => 'paykudes',
+	// 'password' => 'ovDhju4aZal9',
 	'database' => 'inventario',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
