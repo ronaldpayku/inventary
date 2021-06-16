@@ -60,7 +60,8 @@ $route['reportes/mantenimientos'] 				= 'mantenimientos/vehiculos/getMantenimien
 $route['reportes/proveedores'] 					= 'ingresos/proveedores';
 $route['usuario/perfil'] 						= 'administrador/usuarios/perfil';
 $route['mantenimientos/vehiculos/(:num)'] 		= 'mantenimientos/vehiculos/listar/$1';
-
+$route['upload']                                = 'Upload';
+// $route['do_upload-image']                       = 'upload/do_upload'; 
 
 $route['404_override'] 			= '';
 $route['translate_uri_dashes'] 	= FALSE;

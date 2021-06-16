@@ -69,6 +69,9 @@
                                                 <button type="button" class="btn btn-info btn-flat btn-mante" data-toggle="modal" data-target="#modal-mantenimiento" title="Mantenimientos" value="<?php echo $impresora->id; ?>">
                                                     <span class="fa fa-wrench"></span>
                                                 </button>
+
+                                                <!-- botn subir -->
+                                                <a href="<?php echo base_url();?>upload/do_upload/<?php echo $impresora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
                                             </div>
                                         </td>
 

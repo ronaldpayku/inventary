@@ -15,9 +15,9 @@ class Upload extends CI_Controller {
 
         public function do_upload()
         {
-                $data['img'] = '';
+                
                 $config['upload_path']          = './uploads/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'pdf|jpg|png';
                 $config['max_size']             = 350;
                 $config['max_width']            = 1366;
                 $config['max_height']           = 2282;
@@ -33,7 +33,7 @@ class Upload extends CI_Controller {
                 else
                 {
                         $data = array('upload_data' => $this->upload->data());
-                        $data['img'] = base_url(). '/uploads/'.$data['file_name'];
+                        
                         $this->load->view('upload_success', $data);
                 }
         }

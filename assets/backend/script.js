@@ -75,7 +75,8 @@ $(document).ready(function(){
 		id = $(this).val();
 		modulo = $("#modulo").val();
 		$.ajax({
-			url: base_url + "uploads/"+modulo+"/view",
+			// url: base_url + "uploads/"+modulo+"/viewarchivo",
+			url: base_url + "uploads/"+$upload_data['file_name'],
 			type: "POST",
 			data: {id:id},
 			success: function(resp){
@@ -83,6 +84,7 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
 
 	$(document).on("click", ".btn-view-conf",function(){
 		id = $(this).val();

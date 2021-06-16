@@ -46,6 +46,8 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $upload_data = 0 ?>
+                            
                                 <?php foreach ($computadoras as $computadora): ?>
                                     <tr>
                                         <td><?php echo $computadora->id?></td>
@@ -56,6 +58,7 @@
                                         <td><?php echo $computadora->disco?></td>
                                         <td><?php echo $computadora->monitor?></td>
                                         <td><?php echo $computadora->memoria?></td>
+                                        
                                         
                                         <td><?php echo $computadora->serial_so?></td>
                                         
@@ -84,6 +87,16 @@
                                                 <button type="button" class="btn btn-primary btn-flat btn-arch" data-toggle="modal" data-target="#modal-archivo" value="<?php echo $computadora->id;?>" title="Ver Archivo">
                                                     <span class="fa fa-eye"></span>
                                                 </button>
+                                               
+
+                                                <!-- <button type="button" class="btn btn-primary btn-flat btn-arch" value="<?=anchor('uploads/'.$upload_data['file_name'])?><?php echo $computadora->id;?>" title="Ver Archivo">
+                                                    <span class="fa fa-eye"></span>
+                                                </button> -->
+
+                                               
+
+                                                
+                                                
                                                 
                                                 
                                             </div>

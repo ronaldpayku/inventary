@@ -130,6 +130,18 @@ class Computadoras extends CI_Controller {
 
 		$this->load->view("admin/computadoras/view", $data);
 	}
+
+	public function viewarchivo(){
+		$id = $this->input->post("id");
+
+		$data = array(
+			"computadora" => $this->Computadoras_model->infoComputadora($id),
+			"mantenimientos" => $this->Computadoras_model->getMantenimientos($id)
+		);
+
+		$this->load->view("admin/computadoras/viewarchivo", $data);
+	}
+
 	public function delete($id){
 		
 		$computadora = $this->Computadoras_model->getComputadora($id);
