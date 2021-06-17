@@ -211,11 +211,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Tu Archivo fue cargado Correctamente</h3>
-                            <!-- <ul>
+                            <ul>
                                 <?php foreach ($upload_data as $item => $value):?>
                                     <li><?php echo $item;?>: <?php echo $value;?></li>
                                 <?php endforeach; ?>
-                            </ul> -->
+                            </ul>
                             <img src="<?php echo base_url('uploads/'.$upload_data['file_name']); ?>" >
                             
                                 <p><?php echo anchor('upload', 'Deseas cargar otro archivo?'); ?></p>
