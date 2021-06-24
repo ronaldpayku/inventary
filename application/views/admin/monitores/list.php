@@ -68,8 +68,10 @@
                                                 <button type="button" class="btn btn-info btn-flat btn-mante" data-toggle="modal" data-target="#modal-mantenimiento" title="Mantenimientos" value="<?php echo $monitor->id;?>">
                                                     <span class="fa fa-wrench"></span>
                                                 </button>
-                                                    <!-- subir archivo -->
-                                                <a href="<?php echo base_url();?>upload/do_upload/<?php echo $monitor->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
+                                                <!-- subir archivo -->
+                                                <a href="<?php echo base_url();?>Image_monitor/add_image_monitor/<?php echo $monitor->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
+
+                                                <a href="<?php echo site_url('Image_monitor/view_images_monitor/monitores')  ?>" class="btn btn-primary btn-flat btn-arch"  title="Ver Archivo"><span class="fa fa-eye"></span></a>
                                             </div>
                                         </td>
 

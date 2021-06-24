@@ -209,25 +209,43 @@
             <!-- Content Header (Page header) -->
             <div class="container pt-5">
             <br><br>
-                <?php 
-                    if (isset($error)){
-                        echo $error;
-                    }
-                ?>
-                
-                <?php $id = $this->input->post("id");?>
-                <div class="row mt-5">
-                    <div class="col-md-12 pt-5">
-                    <?php echo form_open_multipart('upload/do_upload/'.$id);?>
-                                <label for="">Subir Imagen:</label>
-                                <br>
-                                <input type="file" name="userfile" size="20" />
-                                <span class="help-block">Seleccione archivo .jpg .png y pdf</span>
-                                <br />
-                            <input type="submit" class="btn btn-info" value="Subir Archivo" />
-                            </form>
-                    </div>        
-                </div>
+               <!-- success message to display after uploading image -->
+                <?php if ($this->session->flashdata('success')) {?>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <?php echo $this->session->flashdata('success'); ?>
+                        </div>
+                <?php  } ?> 
+                    <!-- validation message to display after form is submitted -->
+                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>','</div>');
+                        ?>    
+                        <!-- image upload form      -->
+                        <?php $id = $this->input->post("id");?>
+                        <?php echo form_open_multipart('Image_monitor/add_image_monitor'.$id) ?>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="image_name_monitor" name="image_name_monitor">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Equipo</label>
+                            <input type="text" class="form-control" id="image_category_monitor" name="image_category_monitor">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Archivo</label>
+                            <input type="file" class="form-control" id="userfile_monitor" name="userfile_monitor">
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary" value="Subir">
+                        <?php form_close() ?> 
+
+                        <a href="<?php echo site_url('Image_monitor/view_images_monitor') ?>" class="btn btn-success" style="margin-left: 20px;">Ver Archivos</a>  
+                    </div>
             </div>
         </div>
         <!-- /.content-wrapper -->
@@ -274,27 +292,8 @@
 
 
 
-<!-- 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-     The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags 
-    <title>Subir Archivo</title>
-
-    <-- Bootstrap 
-    <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-<body>
 
 
-     <-- jQuery (necessary for Bootstrap's JavaScript plugins) 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <-- Include all compiled plugins (below), or include individual files as needed --
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html> -->
+

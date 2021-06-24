@@ -82,23 +82,15 @@
                                                     <span class="fa fa-wrench"></span>
                                                 </button>
                                                 <!-- botn subir -->
-                                                <a href="<?php echo base_url();?>upload/do_upload/<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
+                                                <a href="<?php echo base_url();?>Image/add_image/<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
+                                                                                           
+                                                 <!-- de la otra manera    -->
+                                          <!--      <a href="<?php echo base_url();?>upload/do_upload/<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a> -->
                                                 <!-- ver archivo -->
-                                                <button type="button" class="btn btn-primary btn-flat btn-arch" data-toggle="modal" data-target="#modal-archivo" value="<?php echo $computadora->id;?>" title="Ver Archivo">
-                                                    <span class="fa fa-eye"></span>
-                                                </button>
+                                                
+                                                <a href="<?php echo site_url('Image/view_images/computadoras')  ?>" class="btn btn-primary btn-flat btn-arch"  title="Ver Archivo"><span class="fa fa-eye"></span></a>
                                                
 
-                                                <!-- <button type="button" class="btn btn-primary btn-flat btn-arch" value="<?=anchor('uploads/'.$upload_data['file_name'])?><?php echo $computadora->id;?>" title="Ver Archivo">
-                                                    <span class="fa fa-eye"></span>
-                                                </button> -->
-
-                                               
-
-                                                
-                                                
-                                                
-                                                
                                             </div>
                                         </td>
 

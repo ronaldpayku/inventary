@@ -121,40 +121,7 @@ class Usuarios extends CI_Controller {
         }
 	}
 
-	// public function subirImagen() {
-	// 	$id = $this->input->post("idComputadora");
-
-	// 	$config['upload_path']   = './assets/images/uploads/';
-    //     $config['allowed_types'] = 'gif|jpg|png';
-
-    //     $this->load->library('upload', $config);
-
-    //     if (!$this->upload->do_upload('file')) {
-    //         $error = array(
-    //         	'error' 	=> $this->upload->display_errors(),
-    //         	'status' 	=> 0
-    //         );
-	// 		echo json_encode($error);
-        
-	// 	} else {
-
-    //         $data = array(
-    //         	'upload_data' => $this->upload->data()
-    //         );
-
-    //         $datos = array(
-    //         	"imagen" => $data["upload_data"]["file_name"],
-    //         );
-
-    //         if ($this->Usuarios_model->update($id, $datos)) {
-
-    //         	$success = array(
-    //         		"status" =>1
-    //           	);
-	// 			echo json_encode($success);
-	// 		}
-    //     }
-	// }
+	
 
 	public function changeFirma(){
 		$id = $this->input->post("idUsuario");

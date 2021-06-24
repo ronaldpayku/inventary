@@ -1,3 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -207,31 +209,53 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="container pt-5">
-            <br><br>
-                <?php 
-                    if (isset($error)){
-                        echo $error;
-                    }
-                ?>
-                
-                <?php $id = $this->input->post("id");?>
-                <div class="row mt-5">
-                    <div class="col-md-12 pt-5">
-                    <?php echo form_open_multipart('upload/do_upload/'.$id);?>
-                                <label for="">Subir Imagen:</label>
-                                <br>
-                                <input type="file" name="userfile" size="20" />
-                                <span class="help-block">Seleccione archivo .jpg .png y pdf</span>
-                                <br />
-                            <input type="submit" class="btn btn-info" value="Subir Archivo" />
-                            </form>
-                    </div>        
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-2"></div>
+                  <div class="col-lg-8">
+                <!-- check whether there are images or not -->
+                  <?php if (count($images)): ?>
+                  <div class="card" style="margin-bottom: 100px;">
+                    <div class="card-body">
+                      <br><br>
+                      <a href="<?php echo base_url();?>equipos/computadoras" class="btn btn-primary btn-flat"><span class="fas fa-arrow-left"></span>Volver</a>
+                    <br><br>
+                        <table class="table table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <!-- <th>ID</th> -->
+                              <th>Nombre</th>
+                              <th>Equipo</th>
+                              <th>Archivo</th>    
+                            </tr>      
+                          </thead>
+                          <tbody>
+                          <!-- start of foreach loop to display images -->
+                            <?php foreach($images as $row):?>
+                            <tr>
+                              <!-- <td><?php echo $row->image_id ?></td> -->
+                              <td><?php echo $row->image_name ?></td>
+                              <td><?php echo $row->image_category ?></td>
+                              <td><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row->image ?>"></td>
+                            </tr>
+                            <?php endforeach; ?> 
+                          <!-- end of foreach loop  -->
+                        </tbody>  
+                      </table>
+                    </div>
+                  </div>
+                   <?php else: ?>
+                    <!-- this text is shown when there are no images in the database -->
+                            <h4 style="color: red" class="text-center">No tienes archivos almacenados</h4>
+                    <?php endif ?>
+                    
+                  </div>
+                 </div>
+
                 </div>
-            </div>
-        </div>
         <!-- /.content-wrapper -->
-    </div>
+        
+          </div>
     <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
@@ -274,27 +298,10 @@
 
 
 
-<!-- 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-     The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags 
-    <title>Subir Archivo</title>
-
-    <-- Bootstrap 
-    <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-<body>
 
 
-     <-- jQuery (necessary for Bootstrap's JavaScript plugins) 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <-- Include all compiled plugins (below), or include individual files as needed --
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html> -->
+
+
+
