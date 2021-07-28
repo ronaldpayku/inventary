@@ -43,15 +43,5 @@ MODULOS
 
 5. Mi Perfil
 
-**************************
-DEMO
-**************************
-
-Haga clik `aqui <http://codigosanha.com/inventario/>`_ para interactuar con el sistema.
-
-Utilice los siguientes datos para acceder al sistema:
-
-- Email: admin@gmail.com
-- Password: admin
 
 
