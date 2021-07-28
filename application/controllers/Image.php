@@ -20,7 +20,7 @@ class Image extends CI_Controller {
           $this->load->view('image_upload');
       
       } else {
-        // configurations from upload library
+        // configurations from upload library rp
         $config['upload_path'] = './assets/images/computadoras';
         $config['allowed_types'] = 'pdf|jpg|png|jpeg';
         $config['max_size'] = '2048000'; // max size in KB

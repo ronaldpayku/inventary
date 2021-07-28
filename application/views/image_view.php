@@ -230,13 +230,13 @@
                             </tr>      
                           </thead>
                           <tbody>
-                          <!-- start of foreach loop to display images -->
+                          <!-- start of foreach loop to display images rp-->
                             <?php foreach($images as $row):?>
                             <tr>
                               <!-- <td><?php echo $row->image_id ?></td> -->
                               <td><?php echo $row->image_name ?></td>
                               <td><?php echo $row->image_category ?></td>
-                              <td><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row->image ?>"></td>
+                              <td><a href="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row->image ?>" target="_blank" ><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row->image ?>"></a></td>
                             </tr>
                             <?php endforeach; ?> 
                           <!-- end of foreach loop  -->

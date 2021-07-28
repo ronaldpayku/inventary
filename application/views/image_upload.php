@@ -223,11 +223,12 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>','</div>');
                         ?>    
-                        <!-- image upload form      -->
-                        <?php $id = $this->input->post("id");?>
-                        <?php echo form_open_multipart('Image/add_image'.$id) ?>
+                        <!-- image upload form    rp  -->
+                        <?php $id = $this->input->get("id");?>
+                        <?php echo form_open_multipart('Image/add_image/'.$id) ?>
                         <div class="form-group">
                             <label>Nombre</label>
+                            <input type="hidden" value="<?php echo $id;?>" class="form-control" id="computadora_id" name="computadora_id">
                             <input type="text" class="form-control" id="image_name" name="image_name">
                         </div>
 
@@ -243,8 +244,7 @@
                         
                         <input type="submit" class="btn btn-primary" value="Subir">
                         <?php form_close() ?> 
-
-                        <a href="<?php echo site_url('Image/view_images') ?>" class="btn btn-success" style="margin-left: 20px;">Ver Archivos</a>  
+                        
                     </div>
             </div>
         </div>

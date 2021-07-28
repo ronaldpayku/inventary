@@ -48,7 +48,7 @@ class Image_monitor extends CI_Controller {
       // view images fetched from database
     
       public function view_images_monitor() {
-      $data['image_monitor'] = $this->Image_model_monitor->get_images();
-      $this->load->view('image_view_monitor', $data);
-    }
+        $data['image_monitor'] = $this->Image_model_monitor->get_images();
+        $this->load->view('image_view_monitor', $data);
+      }
 }
