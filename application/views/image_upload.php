@@ -223,8 +223,31 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>','</div>');
                         ?>    
-                        <!-- image upload form    rp  -->
                         <?php $id = $this->input->get("id");?>
+                        <?php echo form_open_multipart('Image/add_image/'.$id) ?>
+                        <div class="form-group">
+                            <!-- <label>Nombre</label> -->
+                            <input type="hidden" value="<?php echo $id;?>" class="form-control" id="computadora_id" name="computadora_id">
+                            <input type="text" class="form-control" id="image_name" name="image_name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Equipo</label>
+                            <input type="text" class="form-control" id="image_category" name="image_category">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Archivo</label>
+                            <input type="file" class="form-control" id="userfile" name="userfile">
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary" value="Subir">
+                        <?php form_close() ?> 
+                        
+                       
+                       
+                       <!-- image upload form    rp  -->
+                        <!-- <?php $id = $this->input->get("id");?>
                         <?php echo form_open_multipart('Image/add_image/'.$id) ?>
                         <div class="form-group">
                             <label>Nombre</label>
@@ -244,7 +267,7 @@
                         
                         <input type="submit" class="btn btn-primary" value="Subir">
                         <?php form_close() ?> 
-                        
+                         -->
                     </div>
             </div>
         </div>

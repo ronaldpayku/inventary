@@ -174,6 +174,7 @@ function mostrarComputadoras(valorBuscar,pagina,cantidad){
 				filas +="<td>"+item.memoria+"</td>";
 				filas +="<td>"+item.serial_so+"</td>";
 				filas +="<td>"+item.nombres+"</td>";
+				filas +="<td>"+item.archivo+"</td>";
 				if (item.estado == 1) {
 					status = "Activo";
 				}else{

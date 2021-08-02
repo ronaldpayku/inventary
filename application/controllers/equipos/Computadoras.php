@@ -177,32 +177,10 @@ class Computadoras extends CI_Controller {
 		$this->load->view('admin/template', $contenido_externo);
 	}
 
-	// public function do_upload()
-	// {
-			
-	// 		$config['upload_path']          = './uploads/computadoras';
-	// 		$config['allowed_types']        = 'pdf|jpg|png';
-	// 		$config['max_size']             = 350;
-	// 		$config['max_width']            = 1366;
-	// 		$config['max_height']           = 2282;
-
-	// 		$this->load->library('upload', $config);
-
-	// 		if ( !$this->upload->do_upload('userfile'))
-	// 		{
-	// 				$error = array('error' => $this->upload->display_errors());
-
-	// 				$this->load->view('upload_form', $error);
-	// 		}
-	// 		else
-	// 		{
-	// 				$data = array('upload_data' => $this->upload->data());
-					
-	// 				$this->load->view('upload_success', $data);
-	// 		}
-	// }
+	
 
 	public function update(){
+		$datos = "";
 		$id = $this->input->post("idComputadora");
 		$codigo = $this->input->post("codigo");
 		$monitor = $this->input->post("monitor");
@@ -223,6 +201,7 @@ class Computadoras extends CI_Controller {
 		$ip = $this->input->post("ip");
 		$mac = $this->input->post("mac");
 		$bitacora = $this->input->post("bitacora");
+		$archivo = $this->input->post('archivo');
 
 		$estado = 1;
 
@@ -232,30 +211,52 @@ class Computadoras extends CI_Controller {
 			}
 		}
 
-		$data = array(
-			"codigo" => $codigo,
-			"monitor_id" => $monitor,
-			"presentacion_id" => $presentacion,
-			"proveedor_id" => $proveedor,
-			"finca_id" => $finca,
-			"area_id" => $area,
-			"contacto" => $contacto,
-			"fabricante_id" => $fabricante,
-			"procesador_id" => $procesador,
-			"ram_id" => $ram,
-			"disco_id" => $disco,
-			"so_id" => $so,
-			"serial_so" => $serial_so,
-			"office_id" => $office,
-			"serial_office" => $serial_office,
-			"antivirus_id" => $antivirus,
-			"ip" => $ip,
-			"mac" => $mac,
-			"bitacora" => $bitacora,
-			"estado" => $estado,
-			"fecregistro" => date("Y-m-d H:i:s"),
-			"usuario_id" => $this->session->userdata("id"),
-		);
+		$config = [
+			"upload_path" => "./assets/images/computadoras",
+			"allowed_types" => "pdf|jpg|png|jpeg",
+
+
+		];
+		
+		$this->load->library("upload", $config);
+
+		if ($this->upload->do_upload('archivo')){
+			$datos = array("upload_data" => $this->upload->data());
+			$image = $_FILES['userfile']['name'];
+			$data = array(
+				"codigo" => $codigo,
+				"monitor_id" => $monitor,
+				"presentacion_id" => $presentacion,
+				"proveedor_id" => $proveedor,
+				"finca_id" => $finca,
+				"area_id" => $area,
+				"contacto" => $contacto,
+				"fabricante_id" => $fabricante,
+				"procesador_id" => $procesador,
+				"ram_id" => $ram,
+				"disco_id" => $disco,
+				"so_id" => $so,
+				"serial_so" => $serial_so,
+				"office_id" => $office,
+				"serial_office" => $serial_office,
+				"antivirus_id" => $antivirus,
+				"ip" => $ip,
+				"mac" => $mac,
+				"bitacora" => $bitacora,
+				"estado" => $estado,
+				"fecregistro" => date("Y-m-d H:i:s"),
+				"usuario_id" => $this->session->userdata("id"),
+				"archivo_id" => $datos['upload_data']['file_name'], 
+			);
+
+		} else {
+			echo $this->upload->display_errors() ;
+		}
+
+		$this->Computadoras_model->update($id, $data);
+        $this->session->set_flashdata('success','Archivo Almacenado');
+        redirect(base_url()."equipos/computadoras");
+
 		if ($this->Computadoras_model->update($id, $data)) {
 			$this->backend_lib->savelog($this->modulo,"Actualización de la Computadora con Codigo ".$codigo);
 			$this->session->set_flashdata("success", "Los datos fueron guardados exitosamente");
@@ -265,8 +266,17 @@ class Computadoras extends CI_Controller {
 			redirect(base_url()."equipos/computadoras/edit/".$id);
 
 		}
+		$this->load->view('image_view', $data);
 		
 	}
+
+
+	public function view_images(){
+		$data['archivo_id'] = $this->Computadoras_model->get_images();
+		$this->load->view('image_view', $data);
+	}
+
+
 
 	public function addmantenimiento(){
 		$id = $this->input->post("idequipo");

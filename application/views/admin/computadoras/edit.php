@@ -21,7 +21,7 @@
     <div class="box box-solid">
     
         <div class="box-body">
-            <form action="<?php echo base_url();?>equipos/computadoras/update" method="POST">
+            <form action="<?php echo base_url();?>equipos/computadoras/update" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="idComputadora" value="<?php echo $computadora->id?>">
                 <div class="row">
                     <div class="col-md-6 col-sm-8 col-xs-12">
@@ -174,6 +174,21 @@
                             <label for="mac">MAC:</label>
                             <input type="text" name="mac" id="mac" class="form-control" value="<?php echo $computadora->mac;?>">
                         </div>
+
+                        <!-- <?php if ($this->$computadora[0]['archivo_id'] != ""): ?> -->
+                           <a target="_blank" href='<?php echo site_url('Image/view_images/computadoras/?id='.$computadora->id) ?>'><button type='button' class='btn btn-info btn-sm'><i class='fa fa-eye'></i></button></a>
+                            <?php endif; ?> -->
+                        <div class="form-group">
+                            <label for="archivo">Subir Archivo</label>
+                            <input type="file" name="archivo" id="archivo" class="form-control">
+                        </div>
+
+                        <a href="<?php echo site_url('Computadoras/view_images/computadoras/?id='.$computadora->id) ?>"<?php echo $computadora->id?> class="btn btn-primary btn-flat btn-arch"  title="Ver Archivo"><span class="fa fa-eye"></span></a>
+
+                        
+
+                        <!-- botn subir rp-->
+                        <a href="<?php echo base_url();?>Image/add_image/?id=<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
                     </div>
                     
                 </div>
@@ -185,17 +200,7 @@
             </form>
         </div>
         <!-- /.box-body -->
-        <div class="container">
-            <form action="#" method="POST" id="form-subir-imagen" enctype="multipart/form-data">
-                <!-- <input type="hidden" name="upload" value=""> -->
-                    <div class="form-group">
-                        <label for="">Seleccionar Archivo:</label>
-                            <input type="file" name="foto_cargada">
-                                <span class="help-block">Seleccione archivo .jpg  y .png</span>
-                    </div>
-                <button type="submit" class="btn btn-info">Sube un Archivo</button>
-            </form>
-        </div>
+        
     </div>
     <!-- /.box -->
 </section>
