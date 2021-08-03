@@ -253,9 +253,9 @@ class Computadoras extends CI_Controller {
 			echo $this->upload->display_errors() ;
 		}
 
-		$this->Computadoras_model->update($id, $data);
-        $this->session->set_flashdata('success','Archivo Almacenado');
-        redirect(base_url()."equipos/computadoras");
+		// $this->Computadoras_model->update($id, $data);
+        // $this->session->set_flashdata('success','Archivo Almacenado');
+        // redirect(base_url()."equipos/computadoras");
 
 		if ($this->Computadoras_model->update($id, $data)) {
 			$this->backend_lib->savelog($this->modulo,"Actualización de la Computadora con Codigo ".$codigo);

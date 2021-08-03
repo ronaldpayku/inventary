@@ -21,7 +21,7 @@
     <div class="box box-solid">
     
         <div class="box-body">
-            <form action="<?php echo base_url();?>equipos/computadoras/update" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url();?>equipos/computadoras/update" id="form-computadora" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="idComputadora" value="<?php echo $computadora->id?>">
                 <div class="row">
                     <div class="col-md-6 col-sm-8 col-xs-12">
@@ -178,7 +178,9 @@
                         <!-- <?php if ($this->$computadora[0]['archivo_id'] != ""): ?> -->
                            <a target="_blank" href='<?php echo site_url('Image/view_images/computadoras/?id='.$computadora->id) ?>'><button type='button' class='btn btn-info btn-sm'><i class='fa fa-eye'></i></button></a>
                             <?php endif; ?> -->
-                        <div class="form-group">
+                       
+                       
+                            <div class="form-group">
                             <label for="archivo">Subir Archivo</label>
                             <input type="file" name="archivo" id="archivo" class="form-control">
                         </div>

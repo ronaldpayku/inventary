@@ -251,6 +251,19 @@ function mostrarComputadoras(valorBuscar,pagina,cantidad){
 	});
 }
 
+function mostrarImagen(){
+	event.preventDefault();
+	var formData = new FormData($("#form-computadora")[0]);
+	$.ajax({
+		url:$("form").attr("action"),
+		type:$("form").attr("method"),
+		data:formData,
+		cache:false,
+		contentType:false,
+		processData:false
+	})
+}
+
 function mostrarImpresoras(valorBuscar,pagina,cantidad){
 	fecinicio = $("#fechainicio").val();
 	fecfin = $("#fechafin").val();
