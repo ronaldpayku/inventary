@@ -217,12 +217,14 @@ class Computadoras extends CI_Controller {
 
 
 		];
+
+		
 		
 		$this->load->library("upload", $config);
 
 		if ($this->upload->do_upload('archivo')){
 			$datos = array("upload_data" => $this->upload->data());
-			$image = $_FILES['userfile']['name'];
+			$image = $datos['file_name'];
 			$data = array(
 				"codigo" => $codigo,
 				"monitor_id" => $monitor,
@@ -253,10 +255,6 @@ class Computadoras extends CI_Controller {
 			echo $this->upload->display_errors() ;
 		}
 
-		// $this->Computadoras_model->update($id, $data);
-        // $this->session->set_flashdata('success','Archivo Almacenado');
-        // redirect(base_url()."equipos/computadoras");
-
 		if ($this->Computadoras_model->update($id, $data)) {
 			$this->backend_lib->savelog($this->modulo,"Actualización de la Computadora con Codigo ".$codigo);
 			$this->session->set_flashdata("success", "Los datos fueron guardados exitosamente");
@@ -266,7 +264,8 @@ class Computadoras extends CI_Controller {
 			redirect(base_url()."equipos/computadoras/edit/".$id);
 
 		}
-		$this->load->view('image_view', $data);
+		// $this->load->view('image_view', $data);
+		$this->Computadoras_model->insertar_imagen($image);
 		
 	}
 

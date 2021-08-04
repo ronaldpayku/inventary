@@ -82,7 +82,7 @@
                                                     <span class="fa fa-wrench"></span>
                                                 </button>
                                                 <!-- botn subir rp-->
-                                                <a href="<?php echo base_url();?>Image/add_image/?id=<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
+                                                <a href="<?php echo base_url();?>Image/add_image/?id=<?php echo $computadora->id?>" <?php echo $computadora->id?> class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
                                                                                            
                                                 <a href="<?php echo site_url('Image/view_images/computadoras/?id='.$computadora->id) ?>"<?php echo $computadora->id?> class="btn btn-primary btn-flat btn-arch"  title="Ver Archivo"><span class="fa fa-eye"></span></a>
                                                

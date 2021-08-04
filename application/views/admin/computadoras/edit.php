@@ -175,22 +175,15 @@
                             <input type="text" name="mac" id="mac" class="form-control" value="<?php echo $computadora->mac;?>">
                         </div>
 
-                        <!-- <?php if ($this->$computadora[0]['archivo_id'] != ""): ?> -->
-                           <a target="_blank" href='<?php echo site_url('Image/view_images/computadoras/?id='.$computadora->id) ?>'><button type='button' class='btn btn-info btn-sm'><i class='fa fa-eye'></i></button></a>
-                            <?php endif; ?> -->
-                       
-                       
+                    
                             <div class="form-group">
-                            <label for="archivo">Subir Archivo</label>
+                            <label for="archivo">Subir Archivo&nbsp;&nbsp;&nbsp;</label>
+								<?php if ($computadora->archivo_id != ""): ?> 
+									<a target="_blank" href='<?php echo base_url('assets/images/computadoras/'.$computadora->archivo_id)?>'><button type='button' class='btn btn-info btn-sm'><i class='fa fa-eye'></i></button></a>
+								<?php endif; ?>
                             <input type="file" name="archivo" id="archivo" class="form-control">
                         </div>
 
-                        <a href="<?php echo site_url('Computadoras/view_images/computadoras/?id='.$computadora->id) ?>"<?php echo $computadora->id?> class="btn btn-primary btn-flat btn-arch"  title="Ver Archivo"><span class="fa fa-eye"></span></a>
-
-                        
-
-                        <!-- botn subir rp-->
-                        <a href="<?php echo base_url();?>Image/add_image/?id=<?php echo $computadora->id?>" class="btn btn-warning btn-flat" title="Subir Archivo"><span class="fa fa-pencil"></span></a>
                     </div>
                     
                 </div>

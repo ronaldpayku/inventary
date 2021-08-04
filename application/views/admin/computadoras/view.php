@@ -60,9 +60,13 @@
 				<tr>
 					<th style="background-color: #f4f4f4;">Monitor</th>
 					<td><?php echo $computadora->monitor; ?></td>
+					<th style="background-color: #f4f4f4;">Archivo</th>
+					<td><?php echo $computadora->archivo_id; ?></td>
 					<th style="background-color: #f4f4f4;"></th>
 					<td></td>
 				</tr>
+
+			
 				<tr>
 					<th style="background-color: #3c8dbc; color: #FFF;" class="text-center" colspan="4">Ultimos Mantenimientos</th>
 				</tr>

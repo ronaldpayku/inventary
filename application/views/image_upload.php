@@ -228,12 +228,12 @@
                         <div class="form-group">
                             <!-- <label>Nombre</label> -->
                             <input type="hidden" value="<?php echo $id;?>" class="form-control" id="computadora_id" name="computadora_id">
-                            <input type="text" class="form-control" id="image_name" name="image_name">
+                            <!-- <input type="text" class="form-control" id="image_name" name="image_name"> -->
                         </div>
 
                         <div class="form-group">
                             <label>Equipo</label>
-                            <input type="text" class="form-control" id="image_category" name="image_category">
+                            <!-- <input type="text" class="form-control" id="image_category" name="image_category"> -->
                         </div>
                         
                         <div class="form-group">

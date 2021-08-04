@@ -16,10 +16,10 @@ class Image extends CI_Controller {
 
       // CI form validation
       $this->form_validation->set_rules('image_name', 'Image Name', 'required');
-      if ($this->form_validation->run() == FALSE){
-          $this->load->view('image_upload');
+      // if ($this->form_validation->run() == FALSE){
+      //     $this->load->view('image_upload');
       
-      } else {
+      // } else {
         // configurations from upload library rp
         $config['upload_path'] = './assets/images/computadoras';
         $config['allowed_types'] = 'pdf|jpg|png|jpeg';
@@ -37,12 +37,12 @@ class Image extends CI_Controller {
         
         } else{
             $data = array('upload_data' => $this->upload->data());
-            $image = $_FILES['userfile']['name'];  //name must be userfile
+            $image = $_FILES['userfile'];  //name must be userfile
         }
         $this->Image_model->insert_image($image);
         $this->session->set_flashdata('success','Archivo Almacenado');
         redirect(base_url()."equipos/computadoras");
-        }
+        // }
     }
 
     
