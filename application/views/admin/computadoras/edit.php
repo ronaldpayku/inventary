@@ -15,11 +15,12 @@
 
 </section>
 
+
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
     <div class="box box-solid">
-    
+ 
         <div class="box-body">
             <form action="<?php echo base_url();?>equipos/computadoras/update" id="form-computadora" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="idComputadora" value="<?php echo $computadora->id?>">
@@ -33,7 +34,8 @@
                             <label for="monitor">Monitores:</label>
                             <select name="monitor" id="monitor" class="form-control" required="required">
                                 <option value="">Elija monitor</option>
-                                <?php foreach ($monitores as $monitor): ?>
+                                <?php 
+								foreach ($monitores as $monitor): ?>
                                     <option value="<?php echo $monitor->id;?>" <?php echo $monitor->id == $computadora->monitor_id ? "selected":"";?>><?php echo $monitor->codigo;?></option>
                                 <?php endforeach ?>
                             </select>
@@ -178,8 +180,8 @@
                     
                             <div class="form-group">
                             <label for="archivo">Subir Archivo&nbsp;&nbsp;&nbsp;</label>
-								<?php if ($computadora->archivo_id != ""): ?> 
-									<a target="_blank" href='<?php echo base_url('assets/images/computadoras/'.$computadora->archivo_id)?>'><button type='button' class='btn btn-info btn-sm'><i class='fa fa-eye'></i></button></a>
+							<?php if ($computadoras_adjunto): ?>
+									<a target="_blank" href="<?php echo base_url() ?>assets/images/computadoras/<?php echo $computadoras_adjunto[0]->image ?>"><button type='button' class='btn btn-info btn-sm'><i class='fa fa-eye'></i></button></a>
 								<?php endif; ?>
                             <input type="file" name="archivo" id="archivo" class="form-control">
                         </div>

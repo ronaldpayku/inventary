@@ -169,6 +169,8 @@ class Computadoras extends CI_Controller {
 			"office" => $this->Office_model->getOffice(),
 			"antivirus" => $this->Antivirus_model->getAntivirus(),
 			"procesadores" => $this->Procesadores_model->getProcesadores(),
+			"computadoras_adjunto" => $this->Computadoras_model->getImages($id),
+
 		);
 
 		$contenido_externo = array(
@@ -214,17 +216,13 @@ class Computadoras extends CI_Controller {
 		$config = [
 			"upload_path" => "./assets/images/computadoras",
 			"allowed_types" => "pdf|jpg|png|jpeg",
-
-
 		];
 
-		
-		
 		$this->load->library("upload", $config);
 
 		if ($this->upload->do_upload('archivo')){
 			$datos = array("upload_data" => $this->upload->data());
-			$image = $datos['file_name'];
+			$image = $datos['upload_data']['file_name'];
 			$data = array(
 				"codigo" => $codigo,
 				"monitor_id" => $monitor,
@@ -248,14 +246,16 @@ class Computadoras extends CI_Controller {
 				"estado" => $estado,
 				"fecregistro" => date("Y-m-d H:i:s"),
 				"usuario_id" => $this->session->userdata("id"),
-				"archivo_id" => $datos['upload_data']['file_name'], 
+				// "archivo_id" => $datos['upload_data']['file_name'], 
 			);
+			$this->Computadoras_model->saveMultiple($id, $image);
+			
 
 		} else {
 			echo $this->upload->display_errors() ;
 		}
 
-		if ($this->Computadoras_model->update($id, $data)) {
+		if ($this->Computadoras_model->update($id, $data, $image)) {
 			$this->backend_lib->savelog($this->modulo,"Actualización de la Computadora con Codigo ".$codigo);
 			$this->session->set_flashdata("success", "Los datos fueron guardados exitosamente");
 			redirect(base_url()."equipos/computadoras");
@@ -264,8 +264,6 @@ class Computadoras extends CI_Controller {
 			redirect(base_url()."equipos/computadoras/edit/".$id);
 
 		}
-		// $this->load->view('image_view', $data);
-		$this->Computadoras_model->insertar_imagen($image);
 		
 	}
 

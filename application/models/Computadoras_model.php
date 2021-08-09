@@ -55,8 +55,16 @@ class Computadoras_model extends CI_Model {
 		return $resultados->row();
 	}
 
-	public function save($data){
-		return $this->db->insert("computadoras",$data);
+	public function saveMultiple($id, $image){
+		 $data = array(
+			'image' => $image,
+			'computadoras_id' => $id, 
+			'fecha_registro' => date("Y-m-d H:i:s")
+		);
+	
+		
+		$this->db->insert('computadoras_adjunto', $data);
+		
 	}
 
 	public function getComputadora($id){
@@ -65,9 +73,19 @@ class Computadoras_model extends CI_Model {
 		return $resultados->row();
 	}
 
-	public function update($id,$data){
+	public function getImages($id){
+		$resultados = $this->db->limit(1)->order_by('fecha_registro', 'DESC')->where('computadoras_id ', $id)->get_compiled_select('computadoras_adjunto', false);
+	
+		$query = $this->db->get();
+		return $query->result();
+	
+	}
+
+	public function update($id,$data, $image){
 		$this->db->where("id", $id);
+	
 		return $this->db->update("computadoras",$data);
+		
 	}
 
 	public function saveMante($data){
@@ -82,34 +100,6 @@ class Computadoras_model extends CI_Model {
 		return $resultados->result();
 	}
 
-	public function insertar_imagen($image, $data) {
-        // assign the data to an array rp
-        $data = array(
-            'image' => $image,
-			'computadora_id' => $this->input->post('computadora_id'),
-        );
-        //insert image to the database
-        $this->db->insert('computadoras_adjunto', $data);
-        }
-        //get images from database
-	public function obtener_imagenes() {
-		$this->db->select('a.*, b.*');
-		$this->db->from('computadoras a' );
-		$this->db->join('computadoras_adjunto b', 'a.archivo_id = b.computadora_id');
-		$this->db->where('b.computadora_id ', $this->input->get('id'));
-		$this->db->order_by('b.fecha_registro');
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-	public function get_images() {
-		$this->db->select('*');
-		$this->db->from('computadoras');
-		$this->db->where('archivo_id', $this->input->get('id'));
-		$query = $this->db->get('computadoras');
-		return $query->result();
-		
-	}
-
 
 }
+

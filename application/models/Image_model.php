@@ -7,8 +7,8 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
         // assign the data to an array rp
         $data = array(
             'image_id' => $this->input->post('image_id'),
-            // 'image_name' => $this->input->post('image_name'),
-            // 'image_category' => $this->input->post('image_category'),
+            'image_name' => $this->input->post('image_name'),
+            'image_category' => $this->input->post('image_category'),
             'image' => $image,
             'computadora_id' => $this->input->post('computadora_id'),
             
