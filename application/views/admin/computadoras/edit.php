@@ -185,6 +185,7 @@
 								<?php endif; ?>
                             <input type="file" name="archivo" id="archivo" class="form-control">
                         </div>
+                        <a href="<?php echo site_url('Image/view_images/computadoras/?id='.$computadora->id) ?>"<?php echo $computadora->id?> class="btn btn-primary btn-flat btn-arch"  title="Ver Archivo"><span class="fa fa-eye"></span></a>
 
                     </div>
                     

@@ -214,7 +214,7 @@
                 <div class="col-lg-2"></div>
                   <div class="col-lg-8">
                 <!-- check whether there are images or not -->
-                  <?php if (count($images)): ?>
+                  <?php if (count($computadoras_adjunto)): ?>
                   <div class="card" style="margin-bottom: 100px;">
                     <div class="card-body">
                       <br><br>
@@ -231,12 +231,12 @@
                           </thead>
                           <tbody>
                           <!-- start of foreach loop to display images rp-->
-                            <?php foreach($images as $row):?>
+                            <?php foreach($computadoras_adjunto as $row):?>
                             <tr>
                               <!-- <td><?php echo $row->image_id ?></td> -->
-                              <td><?php echo $row->image_name ?></td>
-                              <td><?php echo $row->image_category ?></td>
-                              <td><a href="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row->image ?>" target="_blank" ><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row->image ?>"></a></td>
+                              <!-- <td><?php echo $row->image_name ?></td> -->
+                              <!-- <td><?php echo $row->image_category ?></td> -->
+                              <td><a href="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row[0]->image ?>" target="_blank" ><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url() ?>assets/images/computadoras/<?php echo $row[0]->image ?>"></a></td>
                             </tr>
                             <?php endforeach; ?> 
                           <!-- end of foreach loop  -->
