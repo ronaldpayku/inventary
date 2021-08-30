@@ -57,14 +57,7 @@
 					<th style="background-color: #f4f4f4;">Estado</th>
 					<td><?php echo $computadora->estado == 1?"Activo":"Inactivo"; ?></td>
 				</tr>
-				<tr>
-					<th style="background-color: #f4f4f4;">Monitor</th>
-					<td><?php echo $computadora->monitor; ?></td>
-					<th style="background-color: #f4f4f4;">Archivo</th>
-					<td><?php echo $computadora->archivo_id; ?></td>
-					<th style="background-color: #f4f4f4;"></th>
-					<td></td>
-				</tr>
+			
 
 			
 				<tr>

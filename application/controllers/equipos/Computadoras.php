@@ -246,7 +246,7 @@ class Computadoras extends CI_Controller {
 				"estado" => $estado,
 				"fecregistro" => date("Y-m-d H:i:s"),
 				"usuario_id" => $this->session->userdata("id"),
-				// "archivo_id" => $datos['upload_data']['file_name'], 
+				
 			);
 			$this->Computadoras_model->saveMultiple($id, $image);
 			
