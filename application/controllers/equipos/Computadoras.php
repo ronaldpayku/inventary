@@ -258,7 +258,7 @@ class Computadoras extends CI_Controller {
 		if ($this->Computadoras_model->update($id, $data, $image)) {
 			$this->backend_lib->savelog($this->modulo,"Actualización de la Computadora con Codigo ".$codigo);
 			$this->session->set_flashdata("success", "Los datos fueron guardados exitosamente");
-			redirect(base_url()."equipos/computadoras");
+			redirect(base_url()."equipos/computadoras/edit/".$id);
 		} else {
 			$this->session->set_flashdata("error", "Los datos no fueron guardados");
 			redirect(base_url()."equipos/computadoras/edit/".$id);
