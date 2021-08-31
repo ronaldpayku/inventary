@@ -55,6 +55,7 @@ class Computadoras_model extends CI_Model {
 		return $resultados->row();
 	}
 
+	//guardar multiples images al id seleccionado
 	public function saveMultiple($id, $image){
 		 $data = array(
 			'image' => $image,
@@ -72,7 +73,7 @@ class Computadoras_model extends CI_Model {
 		$resultados = $this->db->get("computadoras");
 		return $resultados->row();
 	}
-
+	//obtiene la ultima imagen cargada
 	public function getImages($id){
 		$resultados = $this->db->limit(1)->order_by('fecha_registro', 'DESC')->where('computadoras_id ', $id)->get_compiled_select('computadoras_adjunto', false);
 	
