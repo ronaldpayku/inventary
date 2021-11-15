@@ -109,15 +109,15 @@ class Routers extends CI_Controller {
 			$objDrawing->setPath("./assets/images/logo.png");
 			$objDrawing->setOffsetY(10);
 			$objDrawing->setOffsetX(10);
-			$objDrawing->setCoordinates('A1');
+			$objDrawing->setCoordinates('B1');
 			$objDrawing->setWidth(30);
 			$objDrawing->setHeight(30);
 			$objDrawing->setWorksheet($this->excel->getActiveSheet());
 
 	        //Definimos los títulos de la cabecera.
-	        $this->excel->getActiveSheet()->setCellValue("C1", 'Payku Spa');	
+	        // $this->excel->getActiveSheet()->setCellValue("C1", 'Payku Spa');	
 	        $this->excel->getActiveSheet()->setCellValue("D1",date("d-m-Y"));	
-	        $this->excel->getActiveSheet()->setCellValue("A{$contador}", 'Nro.');	        
+	        // $this->excel->getActiveSheet()->setCellValue("A{$contador}", 'Nro.');	        
 	        $this->excel->getActiveSheet()->setCellValue("B{$contador}", 'Codigo');
 	        $this->excel->getActiveSheet()->setCellValue("C{$contador}", 'Fabricante');
 	        $this->excel->getActiveSheet()->setCellValue("D{$contador}", 'Modelo');
@@ -143,7 +143,7 @@ class Routers extends CI_Controller {
 	        	//Incrementamos una fila más, para ir a la siguiente.
 	        	$contador++;
 	        	//Informacion de las filas de la consulta.
-				$this->excel->getActiveSheet()->setCellValue("A{$contador}", $i);
+				// $this->excel->getActiveSheet()->setCellValue("A{$contador}", $i);
 		        $this->excel->getActiveSheet()->setCellValue("B{$contador}", $mon->codigo);
 		        
 		        $this->excel->getActiveSheet()->setCellValue("C{$contador}", $mon->fabricante);
@@ -190,7 +190,7 @@ class Routers extends CI_Controller {
         	//preparamos y maquetamos el contenido a crear
 	        $html = '';
 	        $html .= "<style type=text/css>";
-	        $html .= "th{color: #fff; font-weight: bold; background-color: #222}";
+	        $html .= "th{color: #fff; background-color: #222}";
 	        $html .= "h1{text-align: center;}";
 	        $html .="#content {position: relative;}";
 	        $html .="
@@ -202,18 +202,18 @@ class Routers extends CI_Controller {
 	        /*$html .= "img{float: left; top:0; position:absolute;}";*/
 	        $html .= "</style>";
 
-	        $html .= '<table width="100%" cellpadding="3" border="1"><thead>';
+	        $html .= '<table width="100%" cellpadding="3" border="0"><thead>';
 	        $html .= '<tr>';
 
 	        $html .= '<td width="15%" rowspan="2">
-					<img src="'.base_url("assets/images/logo.png").'" width="65" height="30">
+					
 	        </td>';
-	        $html .= '<td width="70%" rowspan="2" style="font-weight:bold;text-align:center;margin-top:30px !important;"><h1>Payku Spa</h1></td>';
-	        $html .= '<td width="15%" style="font-weight:bold;text-align:center;">Fecha</td>';
+	        $html .= '<td width="70%" rowspan="2" style="font-weight:bold;text-align:center;margin-top:30px; margin-right:150px !important;"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30"></td>';
+	        $html .= '<td width="15%" style="font-weight:bold;text-align:center;"></td>';
 	        $html .= '</tr>';
 	        $html .= '<tr>';
 
-	        $html .= '<td style="text-align:center;">'.date("d-m-Y").'</td>';
+	        $html .= '<td style="text-align:center;">Fecha: '.date("d-m-Y").'</td>';
 	        $html .= '</tr>';
 	        $html .= '</thead></table>';
 
@@ -221,7 +221,7 @@ class Routers extends CI_Controller {
 	
 	        $html .= '<table width="100%" cellpadding="3" border="1"><thead>';
 	        $html .= '<tr>';
-	        $html .= "<th>Nro.</th>";
+	        // $html .= "<th>Nro.</th>";
             $html .= '<th>Codigo</th>';
             $html .= '<th>Fabricante</th>';
             $html .= '<th>Modelo</th>';
@@ -241,7 +241,7 @@ class Routers extends CI_Controller {
 	        //provincias es la respuesta de la función getProvinciasSeleccionadas($provincia) del modelo
 	         foreach ($routers as $mon){
 	         	$html.='<tr>';
-                $html.='<td>'.$mon->id.'</td>';
+                // $html.='<td>'.$mon->id.'</td>';
                 $html.='<td>'.$mon->codigo.'</td>';
                 $html.='<td>'.$mon->fabricante.'</td>';
                 $html.='<td>'.$mon->modelo.'</td>';
