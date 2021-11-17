@@ -61,6 +61,16 @@ class Routers extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	// // Page footer
+	// public function Footer() {
+	// 	// Position at 15 mm from bottom
+	// 	$this->SetY(-15);
+	// 	// Set font
+	// 	$this->SetFont('Helvetica', '', 8);
+	// 	// Page number
+	// 	$this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+	// }
+
 	public function exportar() {
 		
 		$fechainicio 	= $this->input->post("fechainicio");
@@ -181,25 +191,29 @@ class Routers extends CI_Controller {
 			 
 			//Si tienes que imprimir carácteres ASCII estándar, puede utilizar las fuentes básicas como
 			// Helvetica para reducir el tamaño del archivo.
-        	$pdf->SetFont('times', '', 10, '', true);
+        	$pdf->SetFont('Helvetica', '', 8, '', true);
 
 			// Añadir una página
 			// Este método tiene varias opciones, consulta la documentación para más información.
 			$pdf->AddPage("L");
+			// $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA)); 
+			// $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
         	//preparamos y maquetamos el contenido a crear
 	        $html = '';
 	        $html .= "<style type=text/css>";
+			$html .= "@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900')";
+			$html .= "font-family: 'Nunito', sans-serif;font-size : 7px";
 	        $html .= "th{color: #fff; background-color: #222}";
 	        $html .= "h1{text-align: center;}";
 	        $html .="#content {position: relative;}";
-	        $html .="
-				#content img {
-				    position: absolute;
-				    top: 0px;
-				    right: 0px;
-				}";
-	        /*$html .= "img{float: left; top:0; position:absolute;}";*/
+	        // $html .="
+			// 	#content img {
+			// 	    position: absolute;
+			// 	    top: 0px;
+			// 	    right: 0px;
+			// 	}";
+	        $html .= "img{top:0; position:absolute; margin-left:500px;}";
 	        $html .= "</style>";
 
 	        $html .= '<table width="100%" cellpadding="3" border="0"><thead>';
@@ -208,16 +222,16 @@ class Routers extends CI_Controller {
 	        $html .= '<td width="15%" rowspan="2">
 					
 	        </td>';
-	        $html .= '<td width="70%" rowspan="2" style="font-weight:bold;text-align:center;margin-top:30px; margin-right:150px !important;"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30"></td>';
-	        $html .= '<td width="15%" style="font-weight:bold;text-align:center;"></td>';
+	        $html .= '<td width="70%" rowspan="2"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30" ></td>';
+	        $html .= '<td width="15%"></td>';
 	        $html .= '</tr>';
 	        $html .= '<tr>';
 
-	        $html .= '<td style="text-align:center;">Fecha: '.date("d-m-Y").'</td>';
+	        $html .= '<td>Fecha: '.date("d-m-Y").'</td>';
 	        $html .= '</tr>';
 	        $html .= '</thead></table>';
 
-	        $html .= '<h2 style="text-align:center;">Reportes de Puntos de Acceso</h2>';
+	        $html .= '<h2>Reportes de Puntos de Acceso</h2>';
 	
 	        $html .= '<table width="100%" cellpadding="3" border="1"><thead>';
 	        $html .= '<tr>';
@@ -256,7 +270,10 @@ class Routers extends CI_Controller {
 	         }
 
 	         $html.='</tbody></table>';
-
+			//  print_r($html);
+			//  exit();
+			
+			
 			// Imprimimos el texto con writeHTMLCell()
         	$pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 0, $fill = 0, $reseth = true, $align = '', $autopadding = true);
 
@@ -266,6 +283,7 @@ class Routers extends CI_Controller {
         	$nombre_archivo = utf8_decode("Reportes_de_puntos_de_acceso_".date("dmYHis").".pdf");
         	$pdf->Output($nombre_archivo, 'D');
 		}
+	
 	
 	}
 }
