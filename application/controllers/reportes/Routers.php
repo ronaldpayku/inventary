@@ -207,6 +207,7 @@ class Routers extends CI_Controller {
 	        $html .= "th{color: #fff; background-color: #222}";
 	        $html .= "h1{text-align: center;}";
 	        $html .="#content {position: relative;}";
+			
 	        // $html .="
 			// 	#content img {
 			// 	    position: absolute;
@@ -216,13 +217,13 @@ class Routers extends CI_Controller {
 	        $html .= "img{top:0; position:absolute; margin-left:500px;}";
 	        $html .= "</style>";
 
-	        $html .= '<table width="100%" cellpadding="3" border="0"><thead>';
+	        $html .= '<table width="100%" cellpadding="3" border="1"><thead>';
 	        $html .= '<tr>';
 
 	        $html .= '<td width="15%" rowspan="2">
 					
 	        </td>';
-	        $html .= '<td width="70%" rowspan="2"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30" ></td>';
+	        $html .= '<td width="70%" rowspan="2" style="text-align: center;"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30" ></td>';
 	        $html .= '<td width="15%"></td>';
 	        $html .= '</tr>';
 	        $html .= '<tr>';
