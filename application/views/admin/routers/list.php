@@ -23,7 +23,7 @@
             <input type="hidden" id="modulo" value="routers">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="<?php echo base_url();?>equipos/routers/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span>Agregar Punto de Acceso</a>
+                    <a href="<?php echo base_url();?>equipos/routers/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span>&nbsp;&nbsp;&nbsp;Agregar Punto de Acceso</a>
                     <hr>
                     <div class="table-responsive">
                         <table id="tb-without-buttons" class="table table-bordered table-hover">
