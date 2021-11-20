@@ -61,15 +61,6 @@ class Routers extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	// // Page footer
-	// public function Footer() {
-	// 	// Position at 15 mm from bottom
-	// 	$this->SetY(-15);
-	// 	// Set font
-	// 	$this->SetFont('Helvetica', '', 8);
-	// 	// Page number
-	// 	$this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-	// }
 
 	public function exportar() {
 		
@@ -146,7 +137,6 @@ class Routers extends CI_Controller {
 	        	$routers = $this->Routers_model->getRouters(1,$search,false,false);
 	        }
 
-
 	         //Definimos la data del cuerpo.
 	        $i = 1;
 	        foreach($routers as $mon){
@@ -155,13 +145,9 @@ class Routers extends CI_Controller {
 	        	//Informacion de las filas de la consulta.
 				// $this->excel->getActiveSheet()->setCellValue("A{$contador}", $i);
 		        $this->excel->getActiveSheet()->setCellValue("B{$contador}", $mon->codigo);
-		        
 		        $this->excel->getActiveSheet()->setCellValue("C{$contador}", $mon->fabricante);
 		        $this->excel->getActiveSheet()->setCellValue("D{$contador}", $mon->modelo);
-		        
-		      
 		        $this->excel->getActiveSheet()->setCellValue("E{$contador}", $mon->descripcion);
-		       
 		        $this->excel->getActiveSheet()->setCellValue("F{$contador}", $mon->nombres);
 		        $this->excel->getActiveSheet()->setCellValue("G{$contador}", $mon->fecregistro);
 		        $status = $mon->estado == 1 ? "Activo":"Inactivo"; 
@@ -178,10 +164,9 @@ class Routers extends CI_Controller {
 	        //Hacemos una salida al navegador con el archivo Excel.
 	        $objWriter->save('php://output');
 		}
-		else{
-			 $this->load->library('Pdf');
+		else {
+			$this->load->library('Pdf');
 	        $pdf = new Pdf('L', 'mm', 'A4', true, 'UTF-8', false);
-	        
 	  
 	        $pdf->SetTitle('Reporte de Puntos de Acceso '.date("d-m-Y"));
 
@@ -196,8 +181,6 @@ class Routers extends CI_Controller {
 			// Añadir una página
 			// Este método tiene varias opciones, consulta la documentación para más información.
 			$pdf->AddPage("L");
-			// $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA)); 
-			// $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
         	//preparamos y maquetamos el contenido a crear
 	        $html = '';
@@ -207,23 +190,14 @@ class Routers extends CI_Controller {
 	        $html .= "th{color: #fff; background-color: #222}";
 	        $html .= "h1{text-align: center;}";
 	        $html .="#content {position: relative;}";
-			
-	        // $html .="
-			// 	#content img {
-			// 	    position: absolute;
-			// 	    top: 0px;
-			// 	    right: 0px;
-			// 	}";
 	        $html .= "img{top:0; position:absolute; margin-left:500px;}";
 	        $html .= "</style>";
-
-	        $html .= '<table width="100%" cellpadding="3" border="1"><thead>';
+	        $html .= '<table width="100%" cellpadding="5" border="0"><thead>';
 	        $html .= '<tr>';
-
-	        $html .= '<td width="15%" rowspan="2">
-					
-	        </td>';
-	        $html .= '<td width="70%" rowspan="2" style="text-align: center;"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30" ></td>';
+	        $html .= '<td width="13%" rowspan="2"></td>';
+			$html .= '<td width="13%" rowspan="2"></td>'; 
+			$html .= '<td width="13%" rowspan="2"></td>';
+	        $html .= '<td width="45%" rowspan="2"><img src="'.base_url("assets/images/logo.png").'" width="95" height="30" ></td>';
 	        $html .= '<td width="15%"></td>';
 	        $html .= '</tr>';
 	        $html .= '<tr>';
@@ -236,7 +210,6 @@ class Routers extends CI_Controller {
 	
 	        $html .= '<table width="100%" cellpadding="3" border="1"><thead>';
 	        $html .= '<tr>';
-	        // $html .= "<th>Nro.</th>";
             $html .= '<th>Codigo</th>';
             $html .= '<th>Fabricante</th>';
             $html .= '<th>Modelo</th>';
@@ -254,29 +227,26 @@ class Routers extends CI_Controller {
 	        }
         
 	        //provincias es la respuesta de la función getProvinciasSeleccionadas($provincia) del modelo
-	         foreach ($routers as $mon){
-	         	$html.='<tr>';
-                // $html.='<td>'.$mon->id.'</td>';
-                $html.='<td>'.$mon->codigo.'</td>';
-                $html.='<td>'.$mon->fabricante.'</td>';
-                $html.='<td>'.$mon->modelo.'</td>';
-                
-                $html.='<td>'.$mon->descripcion.'</td>';
-                $html.='<td>'.$mon->ultimo_mante.'</td>';
-                
-                $html.='<td>'.$mon->nombres.'</td>';
-                $status = $mon->estado == 1 ? "Activo":"Inactivo";
-                $html.='<td>'.$status.'</td></tr>';
-               
-	         }
+			foreach ($routers as $mon){
+				$html.='<tr>';
+				$html.='<td>'.$mon->codigo.'</td>';
+				$html.='<td>'.$mon->fabricante.'</td>';
+				$html.='<td>'.$mon->modelo.'</td>';
+				
+				$html.='<td>'.$mon->descripcion.'</td>';
+				$html.='<td>'.$mon->ultimo_mante.'</td>';
+				
+				$html.='<td>'.$mon->nombres.'</td>';
+				$status = $mon->estado == 1 ? "Activo":"Inactivo";
+				$html.='<td>'.$status.'</td></tr>';
+			}
 
 	         $html.='</tbody></table>';
 			//  print_r($html);
 			//  exit();
-			
-			
+
 			// Imprimimos el texto con writeHTMLCell()
-        	$pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 0, $fill = 0, $reseth = true, $align = '', $autopadding = true);
+        	$pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 0, $fill = 0, $reseth = true, $align = '', $autopadding = false);
 
 			// ---------------------------------------------------------
 			// Cerrar el documento PDF y preparamos la salida
@@ -284,7 +254,5 @@ class Routers extends CI_Controller {
         	$nombre_archivo = utf8_decode("Reportes_de_puntos_de_acceso_".date("dmYHis").".pdf");
         	$pdf->Output($nombre_archivo, 'D');
 		}
-	
-	
 	}
 }
